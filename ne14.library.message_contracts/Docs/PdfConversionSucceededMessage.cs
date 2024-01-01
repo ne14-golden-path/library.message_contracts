@@ -1,4 +1,4 @@
-﻿// <copyright file="PdfConversionSucceeded.cs" company="ne1410s">
+﻿// <copyright file="PdfConversionSucceededMessage.cs" company="ne1410s">
 // Copyright (c) ne1410s. All rights reserved.
 // </copyright>
 
@@ -11,6 +11,6 @@ using System;
 /// </summary>
 /// <param name="InboundBlobReference">The inbound blob reference.</param>
 /// <param name="OutboundBlobReference">The outbound blob reference.</param>
-public record PdfConversionSucceeded(
+public record PdfConversionSucceededMessage(
     Guid InboundBlobReference,
     Guid OutboundBlobReference);

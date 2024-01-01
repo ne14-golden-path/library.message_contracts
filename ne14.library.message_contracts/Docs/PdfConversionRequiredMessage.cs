@@ -1,4 +1,4 @@
-﻿// <copyright file="PdfConversionRequired.cs" company="ne1410s">
+﻿// <copyright file="PdfConversionRequiredMessage.cs" company="ne1410s">
 // Copyright (c) ne1410s. All rights reserved.
 // </copyright>
 
@@ -10,5 +10,5 @@ using System;
 /// Data to include when requesting pdf conversion.
 /// </summary>
 /// <param name="InboundBlobReference">The inbound blob reference.</param>
-public record PdfConversionRequired(
+public record PdfConversionRequiredMessage(
     Guid InboundBlobReference);

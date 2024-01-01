@@ -1,4 +1,4 @@
-﻿// <copyright file="PdfConversionFailed.cs" company="ne1410s">
+﻿// <copyright file="PdfConversionFailedMessage.cs" company="ne1410s">
 // Copyright (c) ne1410s. All rights reserved.
 // </copyright>
 
@@ -11,6 +11,6 @@ using System;
 /// </summary>
 /// <param name="InboundBlobReference">The inbound blob reference.</param>
 /// <param name="FailureReason">The failure reason.</param>
-public record PdfConversionFailed(
+public record PdfConversionFailedMessage(
     Guid InboundBlobReference,
     string FailureReason);

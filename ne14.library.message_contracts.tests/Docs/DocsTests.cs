@@ -19,9 +19,9 @@ public class DocsTests
     };
 
     [Theory]
-    [InlineData(typeof(PdfConversionFailed))]
-    [InlineData(typeof(PdfConversionRequired))]
-    [InlineData(typeof(PdfConversionSucceeded))]
+    [InlineData(typeof(PdfConversionFailedMessage))]
+    [InlineData(typeof(PdfConversionRequiredMessage))]
+    [InlineData(typeof(PdfConversionSucceededMessage))]
     public void Test1(Type type)
     {
         // Arrange
