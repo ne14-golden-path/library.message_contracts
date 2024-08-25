@@ -13,6 +13,6 @@ using System;
 /// <param name="InboundBlobReference">The inbound blob reference.</param>
 /// <param name="OutboundBlobReference">The outbound blob reference.</param>
 public record PdfConversionSucceededMessage(
-    Guid UserId,
+    string UserId,
     Guid InboundBlobReference,
     Guid OutboundBlobReference);

@@ -13,6 +13,6 @@ using System;
 /// <param name="InboundBlobReference">The inbound blob reference.</param>
 /// <param name="FailureReason">The failure reason.</param>
 public record PdfConversionFailedMessage(
-    Guid UserId,
+    string UserId,
     Guid InboundBlobReference,
     string FailureReason);

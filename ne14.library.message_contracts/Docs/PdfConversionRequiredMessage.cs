@@ -12,5 +12,5 @@ using System;
 /// <param name="UserId">The user sending the request.</param>
 /// <param name="InboundBlobReference">The inbound blob reference.</param>
 public record PdfConversionRequiredMessage(
-    Guid UserId,
+    string UserId,
     Guid InboundBlobReference);
