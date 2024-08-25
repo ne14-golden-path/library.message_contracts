@@ -5,16 +5,16 @@ on:
     - v[0-9]+.[0-9]+.[0-9]+*
 jobs:
   call_test:
-    uses: ./.github/workflows/test.yml
+    uses: ./.github/workflows/run-tests.yml
     secrets: inherit
   release:
     needs: call_test
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         ref: main
-    - uses: actions/setup-dotnet@v2
+    - uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
     - name: Pack and Publish
@@ -22,8 +22,9 @@ jobs:
         READ_REPO_PACKAGES: ${{ secrets.READ_REPO_PACKAGES }}
       run: |
         vversion=${{ github.ref_name }}
-        dotnet nuget add source "https://nuget.pkg.github.com/ne14-golden-path/index.json" --name ne14-gp --username ne14-gp --password "${{ env.READ_REPO_PACKAGES }}" --store-password-in-clear-text
+        dotnet nuget add source "https://nuget.pkg.github.com/ne14-golden-path/index.json" --name ne1410s --username ne1410s --password "${{ env.READ_REPO_PACKAGES }}" --store-password-in-clear-text
         dotnet pack -c Release -o ${{ runner.temp }}/nu -p:Version=${vversion:1}
+        echo "push to github feed ..."
         dotnet nuget push ${{ runner.temp }}/nu/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source "https://nuget.pkg.github.com/ne14-golden-path/index.json"
     - name: Increment patch (if stable release)
       run: |

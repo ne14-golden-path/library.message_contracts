@@ -6,8 +6,8 @@ jobs:
   run_tests:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-dotnet@v2
+    - uses: actions/checkout@v4
+    - uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
     - name: Add local packages source
@@ -19,10 +19,10 @@ jobs:
     - name: Build for release
       run: dotnet build -c Release
     - name: Generate raw coverage data
-      run: dotnet test -c Release -s .runsettings; dotnet reportgenerator -targetdir:coveragereport -reports:**/coverage.cobertura.xml -reporttypes:"html;jsonsummary"
+      run: dotnet test -c Release -s .runsettings; dotnet reportgenerator -targetdir:'${{ github.workspace }}/coverage' -reports:**/coverage.cobertura.xml -reporttypes:"html;jsonsummary;cobertura"
     - name: Get coverage json
       id: getjson
-      run: echo COVERAGE_JSON=$(tr '\r\n' ' ' <coveragereport/Summary.json) >> $GITHUB_ENV
+      run: echo COVERAGE_JSON=$(tr '\r\n' ' ' <${{ github.workspace }}/coverage/Summary.json) >> $GITHUB_ENV
     - name: Check coverage values
       id: check_coverage
       run: |
@@ -40,13 +40,12 @@ jobs:
     - name: Get mutation data
       id: gen_mutation
       if: success() || steps.check_coverage.outcome == 'failure'
-      run: dotnet stryker -O ${{ github.workspace }}/drop
+      run: dotnet stryker -O ${{ github.workspace }}/drop -r html -r json
     - name: Drop artifact - reports
       if: success() || steps.check_coverage.outcome == 'failure' || steps.gen_mutation.outcome == 'failure'
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: reports
         path: ${{ github.workspace }}/drop/reports
     - name: Fail build warnings
       run: dotnet build -c Release --no-incremental /warnaserror
-

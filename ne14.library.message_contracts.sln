@@ -10,14 +10,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{6944413F
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pipelines", "Pipelines", "{2F8D5739-D711-44C9-94A7-457E72D322A3}"
-	ProjectSection(SolutionItems) = preProject
-		.github\workflows\release.yml = .github\workflows\release.yml
-		.github\workflows\tag.yml = .github\workflows\tag.yml
-		.github\workflows\test.yml = .github\workflows\test.yml
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ne14.library.message_contracts.tests", "ne14.library.message_contracts.tests\ne14.library.message_contracts.tests.csproj", "{19921CDF-889F-4D86-8EE1-B8640F3683BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ne14.library.message_contracts.tests", "ne14.library.message_contracts.tests\ne14.library.message_contracts.tests.csproj", "{19921CDF-889F-4D86-8EE1-B8640F3683BE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pipelines", "Pipelines", "{CBBDAB59-70E8-467A-A37D-2B6B5362C629}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\new-release.yml = .github\workflows\new-release.yml
+		.github\workflows\new-tag.yml = .github\workflows\new-tag.yml
+		.github\workflows\run-tests.yml = .github\workflows\run-tests.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,7 +38,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{2F8D5739-D711-44C9-94A7-457E72D322A3} = {6944413F-2335-4F0D-820F-C60A6E07E1E4}
+		{CBBDAB59-70E8-467A-A37D-2B6B5362C629} = {6944413F-2335-4F0D-820F-C60A6E07E1E4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EE2C9F8F-3DAE-4837-9333-1A5C104A73B7}
