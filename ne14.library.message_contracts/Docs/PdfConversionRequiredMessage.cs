@@ -10,7 +10,9 @@ using System;
 /// Data to include when requesting pdf conversion.
 /// </summary>
 /// <param name="UserId">The user sending the request.</param>
+/// <param name="FileName">The original name of the file as it was received.</param>
 /// <param name="InboundBlobReference">The inbound blob reference.</param>
 public record PdfConversionRequiredMessage(
     string UserId,
+    string FileName,
     Guid InboundBlobReference);

@@ -10,9 +10,11 @@ using System;
 /// Data emitted when notifying of pdf conversion success.
 /// </summary>
 /// <param name="UserId">The user who sent the original request.</param>
+/// <param name="FileName">The original name of the file as it was received.</param>
 /// <param name="InboundBlobReference">The inbound blob reference.</param>
 /// <param name="OutboundBlobReference">The outbound blob reference.</param>
 public record PdfConversionSucceededMessage(
     string UserId,
+    string FileName,
     Guid InboundBlobReference,
     Guid OutboundBlobReference);
