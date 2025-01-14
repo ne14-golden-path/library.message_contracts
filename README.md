@@ -15,4 +15,7 @@ rd -r ../**/StrykerOutput/; dotnet stryker -o;
 
 # Pack and publish a pre-release to a local feed
 $suffix="alpha001"; dotnet pack -c Release -o nu --version-suffix $suffix; dotnet nuget push "nu\*.*$suffix.nupkg" --source localdev; gci nu/ | ri -r; rmdir nu;
+
+# Pack and publish current release to a local feed
+dotnet pack -c Release -o nu; dotnet nuget push "nu\*.nupkg" --source localdev; gci nu/ | ri -r; rmdir nu;
 ```
