@@ -33,6 +33,6 @@ public class DocsTests
         var actual = JsonSerializer.Serialize(poco, Opts);
 
         // Assert
-        actual.Should().Be(expected);
+        actual.ShouldBe(expected);
     }
 }
